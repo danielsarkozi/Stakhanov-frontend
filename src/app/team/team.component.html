@@ -1,0 +1,8 @@
+<h2>My Teams</h2>
+<ul class="teams">
+  <li *ngFor="let team of teams" 
+  [class.selected]="team === selectedTeam" 
+  (click)="onSelect(team)">
+    <span class="team">{{team.id}}</span> {{team.name}}
+  </li>
+</ul>

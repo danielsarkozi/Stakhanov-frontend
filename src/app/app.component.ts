@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Stakhanov';
+  calendarSelected = false;
+  teamSelected = false;
+  registrySelected = false;
+  dashSelected = true;
 }
