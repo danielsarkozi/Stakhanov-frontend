@@ -23,8 +23,7 @@ export class TeamComponent implements OnInit {
     this.selectedTeam = team;
   }
 
-  getTeams(): void{
-    this.teamService.getTeams()
-    .subscribe(teams => this.teams = teams);
+  async getTeams(){
+    this.teams = await this.teamService.getTeams();
   }
 }

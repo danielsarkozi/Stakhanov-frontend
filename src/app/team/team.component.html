@@ -3,6 +3,6 @@
   <li *ngFor="let team of teams" 
   [class.selected]="team === selectedTeam" 
   (click)="onSelect(team)">
-    <span class="team">{{team.id}}</span> {{team.name}}
+    <span class="team">{{team.id}}</span> {{team.team_name}}
   </li>
 </ul>

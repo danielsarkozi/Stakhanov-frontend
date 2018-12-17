@@ -1,48 +1,38 @@
-<mat-toolbar color="primary">
+<div *ngIf="authService.isLoggedIn">
+    <mat-toolbar color="primary">
 
-    <span>{{title}}</span>
+        <span>{{title}}</span>
 
-    <button mat-button class = "toolbar-button" 
-            (click)="registrySelected = false"
-            (click)="calendarSelected = false"
-            (click)="teamSelected = false"
-            (click)="dashSelected = true"
-            a routerLink="/dashboard">
-        Main page
-    </button>
-    
-    <button mat-button class = "toolbar-button"
-            (click)="calendarSelected = true"                                    
-            (click)="teamSelected = false"
-            (click)="registrySelected = false"
-            (click)="dashSelected = false"
-            a routerLink="/calendars">
-        My calendars
-    </button>
+        <button mat-button class="toolbar-button" (click)="registrySelected = false" (click)="calendarSelected = false"
+            (click)="teamSelected = false" (click)="dashSelected = true" a routerLink="/dashboard">
+            Main page
+        </button>
 
-    <button mat-button class = "toolbar-button" 
-            (click)="teamSelected = true"
-            (click)="calendarSelected = false"
-            (click)="registrySelected = false"
-            (click)="dashSelected = false"
-            a routerLink="/teams">
-        My teams
-    </button>
+        <button mat-button class="toolbar-button" (click)="calendarSelected = true" (click)="teamSelected = false" (click)="registrySelected = false"
+            (click)="dashSelected = false" a routerLink="/calendars">
+            My calendars
+        </button>
 
-    <button mat-button class = "toolbar-button" 
-            (click)="registrySelected = true"
-            (click)="calendarSelected = false"
-            (click)="teamSelected = false"
-            (click)="dashSelected = false"
-            a routerLink="/registries">
-        My registries
-    </button>
+        <button mat-button class="toolbar-button" (click)="teamSelected = true" (click)="calendarSelected = false" (click)="registrySelected = false"
+            (click)="dashSelected = false" a routerLink="/teams">
+            My teams
+        </button>
 
-    <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
+        <button mat-button class="toolbar-button" (click)="registrySelected = true" (click)="calendarSelected = false"
+            (click)="teamSelected = false" (click)="dashSelected = false" a routerLink="/registries">
+            My registries
+        </button>
 
-</mat-toolbar>
+        <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
 
-<router-outlet *ngIf="dashSelected"></router-outlet>
-<router-outlet *ngIf="calendarSelected"></router-outlet>
-<router-outlet *ngIf="registrySelected"></router-outlet>
-<router-outlet *ngIf="teamSelected"></router-outlet>
+    </mat-toolbar>
+
+    <router-outlet *ngIf="dashSelected"></router-outlet>
+    <router-outlet *ngIf="calendarSelected"></router-outlet>
+    <router-outlet *ngIf="registrySelected"></router-outlet>
+    <router-outlet *ngIf="teamSelected"></router-outlet>
+</div>
+<div *ngIf="!authService.isLoggedIn">
+    <button mat-button routerLink="/login">Login</button>
+    <router-outlet></router-outlet>
+</div>

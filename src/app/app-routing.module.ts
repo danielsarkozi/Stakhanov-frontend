@@ -5,13 +5,21 @@ import {TeamComponent}          from './team/team.component';
 import {RegistryComponent}      from './registry/registry.component';
 import {CalendarComponent}      from './calendar/calendar.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
+import {AuthGuard}              from './auth.guard';
+import {LoginComponent}         from './login/login.component'
 
 const routes: Routes = [
-  { path: 'teams', component: TeamComponent }, 
-  { path: 'registries', component: RegistryComponent }, 
-  { path: 'calendars', component: CalendarComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'teams', component: TeamComponent,
+  canActivate: [AuthGuard] }, 
+  { path: 'registries', component: RegistryComponent,
+  canActivate: [AuthGuard] }, 
+  { path: 'calendars', component: CalendarComponent,
+  canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent,
+  canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full',
+  canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,8 @@
+import {Calendar} from '../calendar/calendar'
+
 export class Team{
     id: number;
-    name: string;
+    team_name: string;
+    workplace: string;
+    calendar: Calendar;
 }
