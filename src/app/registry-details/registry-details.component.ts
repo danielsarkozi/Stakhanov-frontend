@@ -21,5 +21,4 @@ export class RegistryDetailsComponent implements OnInit {
     this.registryService.putRegistry(this.registry);
     console.log("ok");
   }
-
 }

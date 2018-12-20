@@ -25,9 +25,8 @@ export class CalendarComponent implements OnInit {
     this.selectedCalendar = calendar;
   }
 
-  getCalendars(): void{
-    this.calendarService.getCalendars()
-    .subscribe(calendars => this.calendars = calendars);
+  async getCalendars(){
+    this.calendars = await this.calendarService.getCalendars();
   }
 
 }

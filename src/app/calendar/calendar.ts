@@ -1,4 +1,7 @@
+import {Registry} from '../registry/registry'
+
 export class Calendar{
     id: number;
-    name: string;
+    created_at: Date;
+    registries: Registry[];
 }

@@ -3,7 +3,7 @@
   <li *ngFor="let calendar of calendars" 
   [class.selected]="calendar === selectedCalendar" 
   (click)="onSelect(calendar)">
-    <span class="calendar">{{calendar.id}}</span> {{calendar.name}}
+    <span class="calendar">{{calendar.id}}. calendar</span> 
   </li>
 </ul>
 
