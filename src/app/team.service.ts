@@ -1,24 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
-import { map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { httpOptions } from './auth.service';
 import { Team } from './team/team';
 import { MessageService } from './message.service';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic YWRtaW46cGFzc3dvcmQ=', // admin/password
-  })
-};
-
-interface FeathersResponse<T> {
-  total: number,
-  limit: number,
-  skip: number,
-  data: T[]
-};
+import {Person} from './person'
+import {Registry} from './registry/registry'
 
 @Injectable({
   providedIn: 'root'
@@ -32,16 +18,32 @@ export class TeamService {
     private messageService: MessageService) { }
 
   getTeams(): Promise<Team[]> {
-    return this.http.get<FeathersResponse<Team>>(this.teamUrl)
-      .pipe(map(response => response.data))
-      .toPromise();
+    return this.http.get<Team[]>(this.teamUrl, httpOptions).toPromise();
+  }
+/*
+  getTeamById(team: Team): Promise<Team>{
+    return this.http.get<Team>(`http://localhost:8080/teams/${team.id}`, httpOptions).toPromise();
   }
 
-  private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+  getTeammates(team: Team): Promise<Person[]>{
+    return this.http.get<Person[]>(`http://localhost:8080/teams/${team.id}/teammates`, httpOptions).toPromise();
   }
 
-  getTeam(): Promise<Team> {
-    return this.http.get<Team>(`${this.teamUrl}`).toPromise();
+  postTeam(team: Team): Promise<Team>{
+    return this.http.post<Team>(this.teamUrl, team, httpOptions).toPromise();
   }
+
+  putTeam(team: Team): Promise<Team>{
+    return this.http.put<Team>(`http://localhost:8080/teams/${team.id}`, team, httpOptions).toPromise();
+  }
+
+  postRegistry(team: Team, registry: Registry): Promise<Registry>{
+    return this.http.post<Registry>(`http://localhost:8080/teams/${team.id}/registry`, team, httpOptions).toPromise();
+  }
+
+  deleteTeam(team: Team): Promise<Team>{
+    return this.http.delete<Team>(`http://localhost:8080/teams/${team.id}`, httpOptions).toPromise();
+  }*/
+
+  
 }

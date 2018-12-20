@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import { httpOptions } from './auth.service';
 
 import { MessageService } from './message.service';
 import { Calendar } from './calendar/calendar';
@@ -11,10 +13,9 @@ import { Calendars } from './calendar/mock-calendars';
 })
 export class CalendarService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private http: HttpClient) { }
 
   getCalendars(): Observable<Calendar[]> {
-    this.messageService.add('CalendarService: fetched calendars');
     return of(Calendars);
   }
 }

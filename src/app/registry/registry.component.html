@@ -4,9 +4,10 @@
     <div class="module registry"
     [class.selected]="registry === selectedRegistry" 
     (click)="onSelect(registry)">
-        <h4>Kezdés: {{registry.startdate}}</h4>
-        <h4>Vége: {{registry.enddate}}</h4>
-        <h4>Megjegyzés: {{registry.description}}</h4>
+        <h4>ID: {{registry.id}}</h4>
+        <h4>Kezdés: {{registry.start_time}}</h4>
+        <h4>Vége: {{registry.end_time}}</h4>
+        <h4>Megjegyzés: {{registry.comment}}</h4>
     </div>
   </a>
 </div>

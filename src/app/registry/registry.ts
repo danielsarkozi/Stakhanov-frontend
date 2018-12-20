@@ -1,6 +1,7 @@
 export class Registry{
     id: number;
-    description: string;
-    startdate: Date;
-    enddate: Date;
+    comment: string;
+    start_time: Date;
+    end_time: Date;
+    created_at: Date;
 }

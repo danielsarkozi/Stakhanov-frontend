@@ -25,21 +25,24 @@ export class AuthService {
   ) { }
 
   async login(username: string, password: string): Promise<boolean> {
+    
     const token = btoa(`${username}:${password}`);
     httpOptions.headers =
       httpOptions.headers.set(
         'Authorization',
         `Basic ${token}`
       );
+      
     try {
+      
       const user = await this.http.post<User>(
-        `${this.usersUrl}/login`,
+        `http://localhost:8080/people/login`,
         {
 
         },
         httpOptions
       ).toPromise();
-      console.log('asd');
+      console.log("asd");
       this.isLoggedIn =true;
       this.user = user;
       return Promise.resolve(true);

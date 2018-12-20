@@ -33,6 +33,6 @@
     <router-outlet *ngIf="teamSelected"></router-outlet>
 </div>
 <div *ngIf="!authService.isLoggedIn">
-    <button mat-button routerLink="/login">Login</button>
+    <h1 routerLink="/login">Login</h1>
     <router-outlet></router-outlet>
 </div>

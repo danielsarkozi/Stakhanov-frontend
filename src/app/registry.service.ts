@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import { httpOptions } from './auth.service';
 
 import {Registry} from './registry/registry';
-import {Registries} from './registry/registry-list';
 
 
 
@@ -11,9 +11,27 @@ import {Registries} from './registry/registry-list';
 })
 export class RegistryService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTeams(): Observable<Registry[]> {
-    return of(Registries);
+  getRegistries(): Promise<Registry[]>{
+    return this.http.get<Registry[]>(`http://localhost:8080/registries`, httpOptions).toPromise();
   }
+
+  /*getRegistryById(registry: Registry): Promise<Registry>{
+    return this.http.get<Registry>(`http://localhost:8080/registries/${registry.id}`, httpOptions).toPromise();
+  }
+
+  postRegistry(registry: Registry): Promise<Registry>{
+    return this.http.post<Registry>(`http://localhost:8080/registries`, registry, httpOptions).toPromise();
+  }
+
+  putRegistry(registry: Registry): Promise<Registry>{
+    return this.http.put<Registry>(`http://localhost:8080/registries/${registry.id}`, registry, httpOptions).toPromise();
+  }
+
+  deleteRegistry(registry: Registry): Promise<Registry>{
+    return this.http.delete<Registry>(`http://localhost:8080/registries/${registry.id}`, httpOptions).toPromise();
+  }
+*/
+
 }

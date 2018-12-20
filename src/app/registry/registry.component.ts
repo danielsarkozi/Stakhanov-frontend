@@ -27,9 +27,8 @@ export class RegistryComponent implements OnInit {
     this.selectedRegistry = registry;
   }
 
-  getRegistries(): void{
-    this.registryService.getTeams()
-    .subscribe(registries => this.registries = registries);
+  async getRegistries(){
+    this.registries = await this.registryService.getRegistries();
   }
   
   newRegistry(): void{
