@@ -28,5 +28,6 @@ export class TeamComponent implements OnInit {
 
   async getTeams(){
     this.teams = await this.teamService.getTeams();
+    
   }
 }

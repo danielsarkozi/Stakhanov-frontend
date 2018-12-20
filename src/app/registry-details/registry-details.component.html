@@ -1,15 +1,15 @@
 <div *ngIf="registry">
 
-    <h2>Details</h2>
-    <div><span>id: </span>{{registry.id}}</div>
-    <div>
-      <label>Comment:
-          <input [(ngModel)]="registry.startdate" [matDatepicker]="myDatepicker1">
-          <mat-datepicker #myDatepicker1></mat-datepicker>
-          <input [(ngModel)]="registry.enddate" [matDatepicker]="myDatepicker2">
-          <mat-datepicker #myDatepicker2></mat-datepicker>
-        <input [(ngModel)]="registry.description" placeholder="description" />
-      </label>
-    </div>
-  
+  <h2>Details</h2>
+  <div><span>id: </span>{{registry.id}}</div>
+  <div>
+    <label>Comment:
+      <input [(ngModel)]="registry.start_time" [matDatepicker]="myDatepicker1" placeholder="Start date">
+      <mat-datepicker #myDatepicker1></mat-datepicker>
+      <input [(ngModel)]="registry.end_time" [matDatepicker]="myDatepicker2" placeholder="End date">
+      <mat-datepicker #myDatepicker2></mat-datepicker>
+      <input [(ngModel)]="registry.comment" placeholder="comment" />
+    </label>
   </div>
+  <button mat-flat-button (click)="submitChanges()"> Submit </button>
+</div>

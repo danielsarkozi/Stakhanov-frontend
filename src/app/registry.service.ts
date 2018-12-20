@@ -17,7 +17,7 @@ export class RegistryService {
     return this.http.get<Registry[]>(`http://localhost:8080/registries`, httpOptions).toPromise();
   }
 
-  /*getRegistryById(registry: Registry): Promise<Registry>{
+  getRegistryById(registry: Registry): Promise<Registry>{
     return this.http.get<Registry>(`http://localhost:8080/registries/${registry.id}`, httpOptions).toPromise();
   }
 
@@ -32,6 +32,5 @@ export class RegistryService {
   deleteRegistry(registry: Registry): Promise<Registry>{
     return this.http.delete<Registry>(`http://localhost:8080/registries/${registry.id}`, httpOptions).toPromise();
   }
-*/
 
 }

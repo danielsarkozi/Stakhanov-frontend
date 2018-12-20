@@ -38,7 +38,7 @@ export class TeamService {
   }
 
   postRegistry(team: Team, registry: Registry): Promise<Registry>{
-    return this.http.post<Registry>(`http://localhost:8080/teams/${team.id}/registry`, team, httpOptions).toPromise();
+    return this.http.post<Registry>(`http://localhost:8080/teams/${team.id}/registry`, registry, httpOptions).toPromise();
   }
 
   deleteTeam(team: Team): Promise<Team>{
