@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { httpOptions } from './auth.service';
 import { Team } from './team/team';
 import { MessageService } from './message.service';
-import {Person} from './person'
+import {PublicPerson} from './team/publicperson'
 import {Registry} from './registry/registry'
 
 @Injectable({
@@ -20,13 +20,13 @@ export class TeamService {
   getTeams(): Promise<Team[]> {
     return this.http.get<Team[]>(this.teamUrl, httpOptions).toPromise();
   }
-/*
+
   getTeamById(team: Team): Promise<Team>{
     return this.http.get<Team>(`http://localhost:8080/teams/${team.id}`, httpOptions).toPromise();
   }
 
-  getTeammates(team: Team): Promise<Person[]>{
-    return this.http.get<Person[]>(`http://localhost:8080/teams/${team.id}/teammates`, httpOptions).toPromise();
+  getTeammates(team: Team): Promise<PublicPerson[]>{
+    return this.http.get<PublicPerson[]>(`http://localhost:8080/teams/${team.id}/teammates`, httpOptions).toPromise();
   }
 
   postTeam(team: Team): Promise<Team>{
@@ -43,7 +43,5 @@ export class TeamService {
 
   deleteTeam(team: Team): Promise<Team>{
     return this.http.delete<Team>(`http://localhost:8080/teams/${team.id}`, httpOptions).toPromise();
-  }*/
-
-  
+  }
 }

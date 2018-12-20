@@ -42,7 +42,6 @@ export class AuthService {
         },
         httpOptions
       ).toPromise();
-      console.log("asd");
       this.isLoggedIn =true;
       this.user = user;
       return Promise.resolve(true);

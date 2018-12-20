@@ -6,3 +6,12 @@
     <span class="team">{{team.id}}</span> {{team.team_name}}
   </li>
 </ul>
+
+<div *ngIf = "selectedTeam">
+  <h3>Teammates of {{selectedTeam.name}}</h3>
+  <ul class = "teams">
+    <li *ngFor="let teammate of teammates" >
+      <span>{{teammate.name}}, {{teammate.position}}</span>  
+    </li>
+  </ul>
+</div>
