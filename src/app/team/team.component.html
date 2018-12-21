@@ -1,4 +1,4 @@
-<h2>My Teams</h2>
+<h2>Teams</h2>
 <ul class="teams">
   <li *ngFor="let team of teams" 
   [class.selected]="team === selectedTeam" 
@@ -10,7 +10,7 @@
 <h2>New Team</h2>
 <input [ngModel]="newteam?.team_name" (ngModelChange)="newteam.team_name = $event" type="text" placeholder = "Team name">
 <input [ngModel]="newteam?.workplace" (ngModelChange)="newteam.workplace = $event" type="text" placeholder = "Workplace">
-<button mat-flat-button (click) = "newTeam()">New team</button>
+<button mat-flat-button color="primary" (click) = "newTeam()">New team</button>
 
 <div *ngIf = "selectedTeam">
   <h3>Teammates of {{selectedTeam.team_name}}</h3>
@@ -19,5 +19,5 @@
       <span>{{teammate.name}}, {{teammate.position}}</span>  
     </li>
   </ul>
-  <button mat-flat-button (click) = "addUser()">Join Team!</button>
+  <button mat-flat-button color="primary" (click) = "addUser()">Join Team!</button>
 </div>

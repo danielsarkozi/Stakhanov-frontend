@@ -40,4 +40,13 @@ export class LoginComponent implements OnInit {
       alert('Hibás felhasználónév vagy jelszó!');
     }
   }
+
+ /* onRegister(): void{
+    try {
+      await this.authService.register(this.username.value, this.password.value);
+      this.router.navigate([this.authService.redirectUrl || '/lessons']);
+    } catch {
+      alert('Ez a felhasználónév már foglalt!');
+    }
+  }*/
 }

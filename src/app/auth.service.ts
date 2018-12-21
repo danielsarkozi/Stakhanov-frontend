@@ -56,4 +56,6 @@ export class AuthService {
     httpOptions.headers = httpOptions.headers.set('Authorization', ``);
     this.user = null;
   }
+
+  
 }

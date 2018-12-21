@@ -1,5 +1,5 @@
 <div *ngIf="calendar">
-  <button (click) = "getRegistries()">Registries</button>
+  <button mat-flat-button color="primary" (click) = "getRegistries()">Registries</button>
   <div class="grid grid-pad">
     <a *ngFor="let registry of registries" class="col-1-4">
       <div class="module registry">
@@ -21,6 +21,6 @@
       <input [ngModel]="tempregistry?.comment" (ngModelChange)="tempregistry.comment = $event" placeholder="comment" />
     </label>
   </div>
-  <button (click) = "newRegistry()">New registry</button>
+  <button mat-flat-button color="primary" (click) = "newRegistry()">New registry</button>
 
 </div>
