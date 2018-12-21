@@ -5,6 +5,7 @@ import { Team } from './team/team';
 import { MessageService } from './message.service';
 import {PublicPerson} from './team/publicperson'
 import {Registry} from './registry/registry'
+import {User} from './user'
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,9 @@ export class TeamService {
 
   deleteTeam(team: Team): Promise<Team>{
     return this.http.delete<Team>(`http://localhost:8080/teams/${team.id}`, httpOptions).toPromise();
+  }
+
+  addUser(team: Team): Promise<User>{
+    return this.http.post<User>(`http://localhost:8080/teams/${team.id}/user`, team, httpOptions).toPromise();
   }
 }

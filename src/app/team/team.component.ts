@@ -35,4 +35,8 @@ export class TeamComponent implements OnInit {
   newTeam(): void{
     this.teamService.postTeam(this.newteam);
   }
+
+  addUser(): void{
+    this.teamService.addUser(this.selectedTeam);
+  }
 }
