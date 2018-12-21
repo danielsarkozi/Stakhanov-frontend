@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { httpOptions } from './auth.service';
 
-import { MessageService } from './message.service';
 import { Calendar } from './calendar/calendar';
 import {Registry} from './registry/registry';
 
@@ -32,6 +30,7 @@ export class CalendarService {
   }
 
   postRegistries(calendar: Calendar, registry:Registry): Promise<Registry>{
-    return this.http.post<Registry>(`http://localhost:8080/calendars/${calendar.id}/registries`, httpOptions).toPromise();
+    console.log("asd");
+    return this.http.post<Registry>(`http://localhost:8080/calendars/${calendar.id}/registries`, registry, httpOptions).toPromise();
   }
 }

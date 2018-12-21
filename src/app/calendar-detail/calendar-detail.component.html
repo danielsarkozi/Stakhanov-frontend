@@ -1,11 +1,27 @@
 <div *ngIf="calendar">
+  <button (click) = "getRegistries()">Registries</button>
+  <div class="grid grid-pad">
+    <a *ngFor="let registry of registries" class="col-1-4">
+      <div class="module registry">
+        <h4>ID: {{registry.id}}</h4>
+        <h4>Kezdés: {{registry.start_time}}</h4>
+        <h4>Vége: {{registry.end_time}}</h4>
+        <h4>Megjegyzés: {{registry.comment}}</h4>
+      </div>
+    </a>
+  </div>
 
-  <h2>{{calendar.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{calendar.id}}</div>
+  <h2>New Registry</h2>
   <div>
-    <label>name:
-      <input [(ngModel)]="calendar.name" placeholder="name" />
+    <label>
+      <input [ngModel]="tempregistry?.start_time" (ngModelChange)="tempregistry.start_time = $event" [matDatepicker]="myDatepicker1" placeholder="Start date(dd/mm/yyyy)">
+      <mat-datepicker #myDatepicker1></mat-datepicker>
+      <input [ngModel]="tempregistry?.end_time" (ngModelChange)="tempregistry.end_time = $event" [matDatepicker]="myDatepicker2" placeholder="End date(dd/mm/yyyy)">
+      <mat-datepicker #myDatepicker2></mat-datepicker>
+      <input [ngModel]="tempregistry?.comment" (ngModelChange)="tempregistry.comment = $event" placeholder="comment" />
     </label>
   </div>
+  <button (click) = "newRegistry()">New registry</button>
+
 
 </div>
