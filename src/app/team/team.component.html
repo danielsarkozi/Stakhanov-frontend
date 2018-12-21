@@ -7,6 +7,11 @@
   </li>
 </ul>
 
+<h2>New Team</h2>
+<input [ngModel]="newteam?.team_name" (ngModelChange)="newteam.team_name = $event" type="text" placeholder = "Team name">
+<input [ngModel]="newteam?.workplace" (ngModelChange)="newteam.workplace = $event" type="text" placeholder = "Workplace">
+<button mat-flat-button (click) = "newTeam()">New team</button>
+
 <div *ngIf = "selectedTeam">
   <h3>Teammates of {{selectedTeam.team_name}}</h3>
   <ul class = "teams">

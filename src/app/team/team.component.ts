@@ -14,10 +14,12 @@ export class TeamComponent implements OnInit {
   teams: Team[];
   selectedTeam: Team;
   teammates: PublicPerson[];
+  newteam: Team;
 
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {
+    this.newteam = new Team();
     this.getTeams();
   }
 
@@ -28,6 +30,9 @@ export class TeamComponent implements OnInit {
 
   async getTeams(){
     this.teams = await this.teamService.getTeams();
-    
+  }
+
+  newTeam(): void{
+    this.teamService.postTeam(this.newteam);
   }
 }
