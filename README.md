@@ -1,27 +1,20 @@
 # Stakhanov
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+## Felhasználói útmutató
 
-## Development server
+Az oldal megnyitásakor a bejelentkező oldal fogad minket, bejelentkezni az (admin/password) párossal lehet.
+Ezután a főoldal fogad minket. Az oldal tetején elhelyezkedő toolbar-ral elnavigálhatunk a főbb funkciókhoz.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### My calendar
 
-## Code scaffolding
+Itt találhatóak az egyes munkaköreinkhez tartozó naptárak. Rákattintva egy tetszőleges naptárra, megtekinthetjük az ahhoz tartozó bejegyzéseinket, illetve készíthetünk újat is, a kezdő dátum, befejezési dátum és tetszőleges megjegyzés megadásával. Ekkor a bejegyzés listánk bővül és a változást megtekinthetjük mind itt mind a Registry tabon.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### My registries
 
-## Build
+Itt az általunk létrehozott bejegyzéseket tekinthetjük meg. Egy adott bejegyzésre rákattintva törölhetjük azt.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Team
 
-## Running unit tests
+Ezen a tabon megtekinthetjük az adatbázisban szereplő összes munkakört. Tetszőleges csapatot kiválasztva a csapatot alkotó személyek névsorát vehetjük szemügyre. Ha szándékozunk és még nem vagyunk része a csapatnak akkor csatlakozhatunk hozzá a Join team! gombbal. Lehetőségünk van ugyanezen az oldalon új csapatot létrehozni, a csapatnév illetve a munkahely megadásával. Ennek a munkakörnek automatikusan mi leszünk a főnökei.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Elnavigálhatunk továbbá még a főmenübe vagy dönthetünk úgy, hogy kijelentkezünk. Ezt a logout gombbal tudjuk megtenni, ekkor ismét a bejelentkező képernyőre kerülünk.
