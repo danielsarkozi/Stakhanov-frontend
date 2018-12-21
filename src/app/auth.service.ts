@@ -52,6 +52,7 @@ export class AuthService {
   }
     
   logout() {
+    this.isLoggedIn = false;
     httpOptions.headers = httpOptions.headers.set('Authorization', ``);
     this.user = null;
   }

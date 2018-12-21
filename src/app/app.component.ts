@@ -16,4 +16,9 @@ export class AppComponent {
   teamSelected = false;
   registrySelected = false;
   dashSelected = true;
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }
