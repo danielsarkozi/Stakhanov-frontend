@@ -30,7 +30,6 @@ export class CalendarService {
   }
 
   postRegistries(calendar: Calendar, registry:Registry): Promise<Registry>{
-    console.log("asd");
     return this.http.post<Registry>(`http://localhost:8080/calendars/${calendar.id}/registries`, registry, httpOptions).toPromise();
   }
 }

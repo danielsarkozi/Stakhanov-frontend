@@ -18,7 +18,6 @@ export class RegistryDetailsComponent implements OnInit {
   }
 
   submitChanges(): void{
-    this.registryService.putRegistry(this.registry);
-    console.log("ok");
+    this.registryService.deleteRegistry(this.registry);
   }
 }
